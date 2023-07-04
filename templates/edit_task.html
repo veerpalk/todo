@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Task</h2>
+    <form action="/task/{{task[0]}}/edit" method="POST" class="task-form">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ task[1] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description">{{ task[2] }}</textarea>
+        </div>
+        <!-- <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="pending" {% if task[3] == 'pending' %}selected{% endif %}>Pending</option>
+                <option value="in progress" {% if task[3] == 'in progress' %}selected{% endif %}>In Progress</option>
+                <option value="completed" {% if task[3] == 'completed' %}selected{% endif %}>Completed</option>
+            </select>
+        </div> -->
+
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority">
+                <option value="High" {% if task[5] == 'High' %}selected{% endif %}>High</option>
+                <option value="Medium" {% if task[5] == 'Medium' %}selected{% endif %}>Medium</option>
+                <option value="Low" {% if task[5] == 'Low' %}selected{% endif %}>Low</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="Work" {% if task[8] == 'Work' %}selected{% endif %}>Work</option>
+                <option value="Home" {% if task[8] == 'Home' %}selected{% endif %}>Home</option>
+                <option value="Self" {% if task[8] == 'Self' %}selected{% endif %}>Self</option>
+                <option value="Family" {% if task[8] == 'Low' %}selected{% endif %}>Family</option>
+                <option value="Study" {% if task[8] == 'Study' %}selected{% endif %}>Study</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="due_date">Due Date:</label>
+            <input type="datetime-local" id="due_date" name="due_date" value="{{ task[7].strftime('%Y-%m-%dT%H:%M') }}" min="{{ current_datetime.strftime('%Y-%m-%dT%H:%M') }}" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="update-btn">Update Task</button>
+        </div>
+    </form>
+    <a href="/dashboard" class="back-link">Back to Tasks</a>
+{% endblock %}

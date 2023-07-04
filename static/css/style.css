@@ -1,0 +1,317 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #006666;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.user{
+    color: #fff;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+
+}
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+li h4 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.add-task-btn {
+    background-color: #006666;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+.add-task-btn:hover {
+    background-color: #009999;
+}
+
+.delete-form {
+    display: inline;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f8f8;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Todo List Styles */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.task-meta div {
+  margin-right: 10px;
+}
+
+.task-meta i {
+  margin-right: 5px;
+}
+
+.task-actions {
+  margin-top: 20px;
+  margin-left: auto;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 5px;
+  font-size: 14px;
+
+
+
+
+
+}
+
+.task-actions a,
+.task-actions button {
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff;
+  background-color: #006666;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.task-actions a i,
+.task-actions button i {
+  margin-right: 5px;
+}
+
+.task-actions a.edit-btn i {
+  margin-right: 5px;
+}
+
+.task-actions a.edit-btn:hover {
+  background-color: #f93;
+}
+
+.task-actions a.done-btn i {
+    margin-right: 5px;
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 10px; /* Adjust the gap between buttons as needed */
+  }
+  
+  .edit-btn,
+  .delete-btn,
+  .status-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    color: #333; /* Adjust the button text color as needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn:hover,
+  .delete-btn:hover,
+  .status-form:hover {
+    background-color: #eee; /* Adjust the hover background color as needed */
+  }
+  
+  .started-icon {
+    color: #00aaff; /* Adjust the color of the "Start" icon as needed */
+    font-size: 16px; /* Adjust the size of the "Start" icon as needed */
+    margin-right: 5px; /* Add spacing between the icon and the button text */
+  }
+  
+
+.delete-btn:hover {
+    background-color: red;
+    cursor: pointer;
+
+}
+
+.add-task-btn {
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff;
+  background-color: #006666;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.add-task-btn i {
+  margin-right: 5px;
+}
+
+.add-task-btn:hover {
+  background-color: #009999;
+}
+
+/* CSS styles for status colors */
+.status-pending {
+    color: orange;
+}
+
+.status-in.progress {
+    color: blue;
+}
+
+.status-completed {
+    color: green;
+}
+.task-item h4 {
+    margin-top: 0;
+    text-decoration: none;
+  }
+  
+.completed-task {
+    text-decoration: line-through !important;
+    color: #999;
+    text-decoration-color: #006666 !important;
+}
+
+.high-priority {
+    color: red;
+}
+
+.medium-priority {
+    color: orange;
+}
+
+.low-priority {
+    color: green;
+}
+
+
+.dates{
+    margin-left: auto;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #888;
+
+
+}
+
+.update-status-form {
+    display: inline;
+  }
+  
+  .update-status-btn {
+    background-color: #006666;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .update-status-btn i {
+    margin-right: 4px;
+  }
+  
+  .update-status-btn {
+    background-color: #009999;
+  }
+  
+  .done-btn:hover {
+    background-color: #00cc00; /* Change the background color to green */
+    color: #fff; /* Change the text color to white */
+  }
+  
+  .start-btn:hover {
+    background-color: blue /* Change the background color to light blue */
+  }
+  
+
+  .status-form {
+    background-color: transparent; /* Set the background color to transparent */
+    border: none; /* Remove the border */
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margin */
+  }
+  
+
+.task-item.completed:hover {
+    background-color: #E0E0E0;
+}
+
+.task-item.in-progress:hover {
+    background-color: #F6FFF7;
+}
+
+.task-item.pending:hover {
+    background-color: lightyellow;
+}
+

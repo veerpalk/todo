@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome to Your To-Do List</h2>
+
+<div class="sorting-options">
+    <label for="sort-by">Sort By:</label>
+    <select id="sort-by">
+        <option value="priority_asc">Priority - L to H <i class="fa-solid fa-sort-up"></i></option>
+        <option value="priority_desc">Priority - H to L</option>
+        
+
+        <option value="due-date">Due Date</option>
+        <!-- Add more sorting options as needed -->
+    </select>
+</div>
+    <ul class="task-list" id="task-list">
+        {% for task in tasks %}
+            <li class="task-item {% if task[3] == 'Completed' %}completed{% elif task[3] == 'In Progress' %}in-progress{% elif task[3] == 'Pending' %}pending{% endif %}">
+                <h4 class="{% if task[3] == 'Completed' %}completed-task{% endif %}">{{ task[1] }}</h4>
+                <p class="{% if task[3] == 'Completed' %}completed-task{% endif %}">{{ task[2] }}</p>
+                <div class="task-meta">
+                    <div class="status">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="status-{{ task[3]|lower }}">{{ task[3] }}</span>
+                    </div>
+                    <div class="priority">
+                        {% if task[5] == 'High' %}
+                            <i class="fas fa-arrow-up high-priority"></i>
+                        {% elif task[5] == 'Medium' %}
+                            <i class="fas fa-arrow-up medium-priority"></i>
+                        {% elif task[5] == 'Low' %}
+                            <i class="fas fa-arrow-up low-priority"></i>
+                        {% endif %}
+                        <span>{{ task[5] }}</span>
+                    </div>
+                    <div class="category">
+                        <i class="fas fa-tasks"></i>
+                        <span class="category-{{ task[8]|lower }}">{{ task[8] }}</span>
+                    </div>
+                    <div class="dates">
+                    <div class="created-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>Created At: {{ task[6].strftime('%B %d, %Y %I:%M %p') }}</span>
+                    </div>
+                    
+                    <div class="due-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>Due At: {{ task[7].strftime('%B %d, %Y %I:%M %p') }}</span>
+                    </div>
+                </div>
+                </div>
+                <div class="task-actions">
+                    <a class="edit-btn" href="/task/{{ task[0] }}/edit"><i class="fas fa-edit"></i> Edit</a>                
+                    <form action="/task/{{ task[0] }}/delete" method="POST" class="delete-form">
+                        <button type="submit" class="delete-btn">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </form>
+
+
+            {% if task[3] == 'In Progress' %}
+                <form action="/task/{{ task[0] }}/update" method="POST" class="status-form">
+                    <input type="hidden" name="status" value="Completed">
+                    <button type="submit" class="done-btn">
+                        <i class="fas fa-check"></i> Done
+                    </button>
+                </form>
+            {% elif task[3] == 'Pending' %}
+                <form action="/task/{{ task[0] }}/update" method="POST" class="status-form">
+                    <input type="hidden" name="status" value="Completed">
+                    <button type="submit" class="done-btn">
+                        <i class="fas fa-check"></i> Done
+                </button>
+                </form>
+                <form action="/task/{{ task[0] }}/update" method="POST" class="status-form">
+                    <input type="hidden" name="status" value="In Progress">
+                    <button type="submit" class="start-btn">
+                        <i class="fas fa-play-circle"></i> Start
+                    </button>
+                </form>
+            {% endif %}
+
+                </div>
+
+          
+                
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a class="add-task-btn" href="/task/new"><i class="fas fa-plus"></i> Add New Task</a>
+    <script src="{{ url_for('static', filename='javascript/sort.js') }}"></script>
+
+
+{% endblock %}
