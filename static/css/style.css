@@ -1,7 +1,7 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
-/* Add your CSS styles here */
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -154,7 +154,7 @@ body {
 
   .task-actions {
     display: flex;
-    gap: 10px; /* Adjust the gap between buttons as needed */
+    gap: 10px; 
   }
   
   .edit-btn,
@@ -166,7 +166,7 @@ body {
     padding: 5px 10px;
     border: none;
     background-color: transparent;
-    color: #333; /* Adjust the button text color as needed */
+    color: #333; 
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
@@ -174,13 +174,13 @@ body {
   .edit-btn:hover,
   .delete-btn:hover,
   .status-form:hover {
-    background-color: #eee; /* Adjust the hover background color as needed */
+    background-color: #eee; 
   }
   
   .started-icon {
-    color: #00aaff; /* Adjust the color of the "Start" icon as needed */
-    font-size: 16px; /* Adjust the size of the "Start" icon as needed */
-    margin-right: 5px; /* Add spacing between the icon and the button text */
+    color: #00aaff; 
+    font-size: 16px; 
+    margin-right: 5px; 
   }
   
 
@@ -211,7 +211,7 @@ body {
   background-color: #009999;
 }
 
-/* CSS styles for status colors */
+
 .status-pending {
     color: orange;
 }
@@ -286,20 +286,20 @@ body {
   }
   
   .done-btn:hover {
-    background-color: #00cc00; /* Change the background color to green */
-    color: #fff; /* Change the text color to white */
+    background-color: #00cc00; 
+    color: #fff; 
   }
   
   .start-btn:hover {
-    background-color: blue /* Change the background color to light blue */
+    background-color: blue;
   }
   
 
   .status-form {
-    background-color: transparent; /* Set the background color to transparent */
-    border: none; /* Remove the border */
-    padding: 0; /* Remove any padding */
-    margin: 0; /* Remove any margin */
+    background-color: transparent; 
+    border: none; 
+    padding: 0; 
+    margin: 0; 
   }
   
 

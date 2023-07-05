@@ -6,25 +6,23 @@ import datetime
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# MySQL Configuration
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'todo'
+# MySQL Configuration for dev hosted env
+app.config['MYSQL_HOST'] = 'veerpalkaur.mysql.pythonanywhere-services.com'
+app.config['MYSQL_USER'] = 'veerpalkaur'
+app.config['MYSQL_PASSWORD'] = 'root12345'
+app.config['MYSQL_DB'] = 'veerpalkaur$todo'
 mysql = MySQL(app)
 
 print('App started ...')
 
 
-
-#API to redirect to default route
+#default Api route
 @app.route('/')
 def home():
     return redirect('/dashboard')
 
 
-
-#API to for register
+#API  to register user
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -44,8 +42,7 @@ def register():
     return render_template('register.html')
 
 
-
-#API to for login
+#API  to login user
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     
@@ -69,14 +66,14 @@ def login():
     return render_template('login.html')
 
 
-#API to for logoout
+#API  to logout user
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/login')
 
 
-#API to for dashbaord
+#API  for dashboard
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
@@ -91,7 +88,7 @@ def dashboard():
         return redirect('/login')
 
 
-#API to add new task
+#API  for adding new task
 @app.route('/task/new', methods=['GET', 'POST'])
 def new_task():
     current_datetime = datetime.datetime.now() 
@@ -116,7 +113,7 @@ def new_task():
         return redirect('/login')
 
 
-#API to edit task
+#API  for editting task
 @app.route('/task/<int:task_id>/edit', methods=['GET', 'POST'])
 def edit_task(task_id):
     if 'user_id' in session:
@@ -148,7 +145,7 @@ def edit_task(task_id):
         return redirect('/login')
 
 
-#API to delete task
+#API  for deleting the task
 @app.route('/task/<int:task_id>/delete', methods=['POST'])
 def delete_task(task_id):
     if 'user_id' in session:
@@ -168,7 +165,9 @@ def delete_task(task_id):
     else:
         return redirect('/login')
 
-#API to update status
+
+
+#API  for updating the status
 @app.route('/task/<int:task_id>/update', methods=['POST'])
 def update_task_status(task_id):
     if 'user_id' in session:
